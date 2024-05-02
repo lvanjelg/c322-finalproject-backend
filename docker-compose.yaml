@@ -9,20 +9,5 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: spring-2024
 
-  database-demo-service:
-    image: flowers-service
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: flowers-service
-    ports:
-      - "6002:8085"
-    environment:
-      - server.port=8085
-      - spring.datasource.url=jdbc:postgresql://flowers:5432/spring-2024
-      - spring.datasource.username=postgres
-      - spring.datasource.password=password
-    restart: "no"
-    depends_on:
-      - flowers
+
 

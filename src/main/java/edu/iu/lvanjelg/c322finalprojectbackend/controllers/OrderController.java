@@ -38,12 +38,12 @@ public class OrderController {
         }
         return username;
     }
-
-    @GetMapping
-    public ResponseEntity<List<Order>> findAllByCustomer() {
+    @GetMapping("/{customerId}")
+    @ResponseBody
+    public ResponseEntity<List<Order>> findAllByCustomer(@PathVariable String customerUserName) {
         String username = getTheCurrentLoggedInCustomer();
         System.out.println(username);
-        if(username.trim().isEmpty()) {
+        if(username.trim().isEmpty() || !username.trim().equals(customerUserName)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         List<Order> orders = orderService.findAllByCustomer(username);

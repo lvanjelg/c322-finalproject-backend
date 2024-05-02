@@ -16,7 +16,7 @@ public class Order {
     private String recipientName;
     private Float totalCost;
     private String customerUserName;
-
+    private String address;
 
     public Order() {
     }
@@ -59,5 +59,13 @@ public class Order {
 
     public void setCustomerUserName(String customerUserName) {
         this.customerUserName = customerUserName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
